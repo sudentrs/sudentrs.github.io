@@ -6,30 +6,40 @@
   <title>A Look into My Spending Habits</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- Custom Styling -->
   <style>
+    /* General Styling */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #4CAF50;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #6F5C78, #C7A6AE);
       color: white;
-      padding: 20px 0;
-      text-align: center;
+      animation: gradient 5s infinite alternate;
+    }
+
+    @keyframes gradient {
+      0% { background: linear-gradient(45deg, #6F5C78, #C7A6AE); }
+      100% { background: linear-gradient(45deg, #C7A6AE, #6F5C78); }
     }
 
     nav {
-      background: #333;
-      color: white;
-      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #333;
+      padding: 10px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     nav ul {
@@ -37,6 +47,7 @@
       padding: 0;
       display: flex;
       justify-content: center;
+      margin: 0;
     }
 
     nav ul li {
@@ -44,40 +55,83 @@
     }
 
     nav ul li a {
-      color: white;
+      color: #333;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav ul li a:hover {
-      text-decoration: underline;
+      color: #009688;
     }
 
     section {
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 900px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
     }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin: 20px;
+      animation: bounce 1.5s ease alternate;
+      animation-iteration-count: 3; /* Bounce only 3 times */
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 0 20px;
+      text-align: center;
+      animation: zoom 1s forwards;
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .chart-placeholder {
+      height: 400px;
+      background: #efefef;
+      border: 2px dashed #ccc;
+      text-align: center;
+      line-height: 400px;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* Section Colors */
+    #introduction { background: linear-gradient(to right, #009688, #26A69A); color: white; }
+    #motivation { background: linear-gradient(to right, #FFC107, #FFD54F); color: #333; }
+    #hypothesis { background: linear-gradient(to right, #B9CEC5, #C8E6C9); color: #333; }
+    #bank-data { background: linear-gradient(to right, #A7BC78, #B2DF8A); color: #333; }
+    #bank-visualization { background: linear-gradient(to right, #52600A, #798617); color: white; }
+    #emotion-data { background: linear-gradient(to right, #CB7287, #F06292); color: white; }
+    #emotion-visualization { background: linear-gradient(to right, #EFE4DC, #F5F5F5); color: #333; }
+    #combined-analysis { background: linear-gradient(to right, #D0E69E, #DCEDC8); color: #333; }
+    #conclusion { background: linear-gradient(to right, #E0F1BB, #E6EE9C); color: #333; }
 
     footer {
       background: #333;
       color: white;
       text-align: center;
       padding: 10px 0;
-      margin-top: 20px;
-    }
-
-    .chart-placeholder {
-      height: 400px;
-      background: #efefef;
-      border: 1px dashed #ccc;
-      text-align: center;
-      line-height: 400px;
-      margin: 20px 0;
-      font-weight: bold;
-      color: #555;
     }
   </style>
 </head>
@@ -106,57 +160,72 @@
   <!-- Sections -->
   <section id="introduction">
     <h2>Introduction</h2>
-    <p>Hello! My name is [Your Name], and this is my project for Sabanci University's DSA210 Introduction to Data Science course (Fall 2024-2025). This project explores my spending habits using data from my personal bank transaction history and emotional logs to identify trends and patterns.</p>
+    <p>Hello! My name is [Your Name], and this is my project for Sabanci University's DSA210 Introduction to Data Science course (Fall 2024-2025).</p>
   </section>
 
   <section id="motivation">
     <h2>Motivation</h2>
-    <p>As a young adult living in Turkey's volatile economic environment, I often struggle to track my expenses and determine whether my spending is justified. My goal is to analyze my data to understand my habits, identify triggers for overspending, and determine if emotions play a role in my financial decisions.</p>
+    <p>I aim to understand my spending patterns, identify overspending triggers, and explore emotional correlations.</p>
   </section>
 
   <section id="hypothesis">
     <h2>Initial Hypothesis</h2>
-    <p>I hypothesize that there are certain behavioral patterns in my spending habits that correlate with specific emotional states. For example, I might tend to overspend on leisure or comfort items during periods of stress or sadness.</p>
+    <p>My hypothesis is that emotional states significantly influence spending habits.</p>
   </section>
 
   <section id="bank-data">
     <h2>Processing Bank Data</h2>
-    <p>I extracted my bank transaction history, cleaned it, and categorized my expenses into groups such as food, transportation, subscriptions, and leisure.</p>
-    <div class="chart-placeholder">[Placeholder for Bank Data Processing Visuals]</div>
+    <div class="chart-placeholder">Bank Data Placeholder</div>
   </section>
 
   <section id="bank-visualization">
     <h2>Visualizing Bank Data</h2>
-    <p>The initial visualization of my bank data includes bar charts, histograms, and pie charts to show spending patterns across categories and time periods.</p>
-    <div class="chart-placeholder">[Placeholder for Bank Data Visualizations]</div>
+    <div class="chart-placeholder">Bank Visualization Placeholder</div>
   </section>
 
   <section id="emotion-data">
     <h2>Processing Emotion Data</h2>
-    <p>Using daily journal entries, I recorded my emotional state on a scale of 1-10 (1 being very negative and 10 being very positive). This data was cleaned and aggregated to align with my bank transaction data.</p>
-    <div class="chart-placeholder">[Placeholder for Emotion Data Processing Visuals]</div>
+    <div class="chart-placeholder">Emotion Data Placeholder</div>
   </section>
 
   <section id="emotion-visualization">
     <h2>Visualizing Emotion Data</h2>
-    <p>Visualization of my emotional logs includes time series plots and heatmaps to show how emotions fluctuated over time and their potential impact on spending.</p>
-    <div class="chart-placeholder">[Placeholder for Emotion Data Visualizations]</div>
+    <div class="chart-placeholder">Emotion Visualization Placeholder</div>
   </section>
 
   <section id="combined-analysis">
     <h2>Combined Analysis</h2>
-    <p>In this section, I analyzed the relationship between my spending habits and emotional states. I used interactive scatter plots, correlation matrices, and dynamic filters to identify patterns and trends.</p>
-    <div class="chart-placeholder">[Placeholder for Combined Analysis Interactive Visuals]</div>
+    <div class="chart-placeholder">Combined Analysis Placeholder</div>
   </section>
 
   <section id="conclusion">
     <h2>Conclusion</h2>
-    <p>Through this analysis, I gained valuable insights into my spending habits and how emotions influence my financial decisions. These findings will help me make more informed spending choices in the future.</p>
+    <p>Analyzing spending habits revealed how emotions drive decisions, paving the way for better budgeting.</p>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2024 [Your Name]. All Rights Reserved.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Add 'active' class for animations when sections come into view
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>

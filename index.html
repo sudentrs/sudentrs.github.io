@@ -119,8 +119,7 @@
     #bank-data { background: linear-gradient(to right, #1a522d, #267741); color: white; }
     #emotion-data { background: linear-gradient(to right, #CB7287, #F06292); color: white; }
     #combined-analysis { background: linear-gradient(to right, #323160, #6d6ca1); color: #ffffff; }
-    #machine-learning { background: linear-gradient(to right, #ededed, #e8e8e8); color: #333; }
-    #conclusion { background: linear-gradient(to right, #E0F1BB, #E6EE9C); color: #333; }
+    #machine-learning { background: linear-gradient(to right, #ededed, #e8e8e8); color: #333; }#conclusion { background: linear-gradient(to right, #E0F1BB, #E6EE9C); color: #333; }
 
     footer {
       background: #333;
@@ -146,7 +145,6 @@
       <li><a href="#emotion-data">Emotion Data</a></li>
       <li><a href="#combined-analysis">Combined Analysis</a></li>
       <li><a href="#machine-learning">Machine Learning</a></li>
-      <li><a href="#conclusion">Conclusion</a></li>
     </ul>
   </nav>
 
@@ -338,8 +336,6 @@
               title=""></iframe>
       </p>
     </div>
-
-
   </div>
 
 
@@ -347,17 +343,35 @@
 
   <section id="machine-learning">
     <h2>Machine Learning</h2>
-    <p>write ml here</p>
-  </section>
 
-  <section id="conclusion">
-    <h2>Conclusion</h2>
-    <p>write conc. here</p>
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h3>Model for classifying emotional state</h3>
+      <p>I developed a ML model to classify datapoints as Negative, Neutral or Positive.</p>
+      <img src="ml1.png" 
+          style="max-width: 70%; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
+          alt="ML Model">
+      <p>Model had a 49 percent accuracy which is better than random guessing
+        but results were still not satisfactory for me, model particularly struggled with neutral state.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h3>Model for classifying spending categories</h3>
+      <p>Then I developed another ML model to classify spending categories. I did not include categories that has lesser
+        amount of data points.</p>
+      </p>
+      <img src="ml2.png" 
+          style="max-width: 70%; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
+          alt="ML Model">
+      <p>The model performs well for categories like investment and subscription, where patterns are likely more distinct or less prone to overlap with other categories.
+        Categories like social and transportation show poor performance, with social being completely unclassified.
+        Cross-validation scores range from 0.34 to 0.78, indicating variability in model performance depending on the training/validation split. This suggests sensitivity to the data distribution.
+      </p>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>add links here</p>
+    <p>Sude Tıraş</p>
   </footer>
 
   <!-- JavaScript -->

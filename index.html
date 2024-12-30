@@ -32,6 +32,15 @@
       100% { background: linear-gradient(45deg, #b1dfeb, #26A69A); }
     }
 
+
+    @media (max-width: 768px) {
+    #bank-data div {
+      grid-template-columns: 1fr; /* Single column */
+      grid-template-rows: auto;  /* Adjust rows dynamically */
+    }
+  }
+
+
     nav {
       background: rgba(255, 255, 255, 0.8);
       color: #333;
@@ -150,61 +159,67 @@
 
 <section id="bank-data">
   <h2>Processing Bank Data</h2>
-  <p>I started by visualizing my daily spending:</p>
   <div style="
       display: grid; 
-      grid-template-areas: 
-        'graph1 graph2'
-        'graph3 graph3'
-        'graph4 graph5'; 
-      gap: 20px; 
-      padding: 20px; 
+      grid-template-columns: 1fr 2fr; /* Two-column layout */
+      grid-template-rows: auto auto auto auto auto; /* Dynamic row heights */
+      grid-gap: 20px; 
+      padding: 20px;
+      align-items: center; /* Aligns text with the center of graphs */
       width: 100%;">
 
     <!-- Graph 1 -->
-    <div style="grid-area: graph1;">
+    <div style="grid-column: 1; grid-row: 1; display: flex; align-items: center;">
+      <p>This graph shows my daily spending patterns.</p>
+    </div>
+    <div style="grid-column: 2; grid-row: 1;">
       <iframe src="daily_spending_graph.html" 
               style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
               title="Daily Spending Graph"></iframe>
-      <p style="text-align: center;">This graph shows my daily spending patterns.</p>
     </div>
 
     <!-- Graph 2 -->
-    <div style="grid-area: graph2;">
+    <div style="grid-column: 1; grid-row: 2; display: flex; align-items: center;">
+      <p>This graph highlights abnormal spending trends over time.</p>
+    </div>
+    <div style="grid-column: 2; grid-row: 2;">
       <iframe src="weekly_monthly_spending.html" 
               style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
               title="Weekly and Monthly Spending"></iframe>
-      <p style="text-align: center;">This graph highlights abnormal spending trends.</p>
     </div>
 
     <!-- Graph 3 -->
-    <div style="grid-area: graph3;">
+    <div style="grid-column: 2; grid-row: 3;">
       <iframe src="spending_hour.html" 
               style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
               title="Spending by Hour"></iframe>
-      <p style="text-align: center;">Spending by hour shows peak spending periods.</p>
+    </div>
+    <div style="grid-column: 1; grid-row: 3; display: flex; align-items: center;">
+      <p>This graph shows spending patterns by hour. It was surprising to see the highest spending at 7 am due to a single transaction.</p>
     </div>
 
     <!-- Graph 4 -->
-    <div style="grid-area: graph4;">
+    <div style="grid-column: 1; grid-row: 4; display: flex; align-items: center;">
+      <p>This plot shows a distribution of my spending per category, revealing top expenses like food and clothing.</p>
+    </div>
+    <div style="grid-column: 2; grid-row: 4;">
       <iframe src="spending_category.html" 
               style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
               title="Spending by Category"></iframe>
-      <p style="text-align: center;">Spending by category shows my top expenses.</p>
     </div>
 
     <!-- Graph 5 -->
-    <div style="grid-area: graph5;">
+    <div style="grid-column: 1; grid-row: 5; display: flex; align-items: center;">
+      <p>This graph shows how I spend by categories and hours, such as food purchases during dinner and clothing purchases late at night.</p>
+    </div>
+    <div style="grid-column: 2; grid-row: 5;">
       <iframe src="spending_category_hour.html" 
               style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
               title="Spending by Category and Hour"></iframe>
-      <p style="text-align: center;">This graph shows spending categories by hour.</p>
     </div>
+
   </div>
 </section>
-
-
-
 
 
   <section id="emotion-data">

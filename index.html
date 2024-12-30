@@ -152,33 +152,51 @@
   <h2>Processing Bank Data</h2>
   <p>I started by visualizing my daily spending:</p>
   <div style="
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-      gap: 15px; 
-      width: 100%; 
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 20px; 
       padding: 20px;">
-    <iframe src="daily_spending_graph.html" style="justify-self: center; border: none; width: 70%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Daily Spending Graph"></iframe>
-    <p>add note here</p>
-    <p>Then, I wanted to see there was any abnormal spending</p>
-    <iframe src="weekly_monthly_spending.html" style="justify-self: center; border: none; width: 70%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Weekly and Monthly Spending"></iframe>
-    <p>It makes to see this because abnormal spending corresponds to later periods</p>
+    
+    <!-- Group: Daily Spending -->
+    <div style="display: flex; flex-direction: column; align-items: center; width: 45%; min-width: 300px;">
+      <iframe src="daily_spending_graph.html" style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Daily Spending Graph"></iframe>
+      <p>Then, I wanted to see if there was any abnormal spending.</p>
+    </div>
 
-    <p>I plotted my spending per hour to see in which part of the day I spend more</p>
-    <iframe src="spending_hour.html" style="justify-self: center;border: none; width: 70%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Spending by Hour"></iframe>
-    <p>It was suprising to see highest averege spending for 7 am but that is only because there is only 1 transaction in that hour</p>
+    <!-- Group: Weekly & Monthly Spending -->
+    <div style="display: flex; flex-direction: column; align-items: center; width: 45%; min-width: 300px;">
+      <iframe src="weekly_monthly_spending.html" style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Weekly and Monthly Spending"></iframe>
+      <p>It makes sense because abnormal spending corresponds to later periods.</p>
+    </div>
 
-    <p>This plot shows a distrubition of my spending per category</p>
-    <iframe src="spending_category.html" style="justify-self: center; border: none; width: 70%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Spending by Category"></iframe>
-    <p>I initially added categories like skincare and make-up because I thought I was overspending on those categories but it seems that I am not spending too much</p>
+    <!-- Group: Spending Per Hour -->
+    <div style="display: flex; flex-direction: column; align-items: center; width: 45%; min-width: 300px;">
+      <iframe src="spending_hour.html" style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Spending by Hour"></iframe>
+      <p>It was surprising to see the highest average spending at 7 am, but this is due to only one transaction in that hour.</p>
+    </div>
 
-    <p>Then I wanted to see my spending categories per hour</p>
-    <iframe src="spending_category_hour.html" style="justify-self: center; border: none; width: 70%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Spending by Category and Hour"></iframe>
-    <p>It seems that I do most of my food related purchases during dinner time and my clothing purchases at night which I think is related to impulse online shopping.</p>
+    <!-- Group: Spending by Category -->
+    <div style="display: flex; flex-direction: column; align-items: center; width: 45%; min-width: 300px;">
+      <iframe src="spending_category.html" style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Spending by Category"></iframe>
+      <p>This plot shows the distribution of spending per category. Categories like skincare and makeup aren't overspending as initially thought.</p>
+    </div>
 
-    <p>Here trends for my spending by categories can be seen. You can use dropdown menu to observe any category by itself</p>
-    <iframe src="monthly_spending_trends.html" style="justify-self: center; border: none; width: 70%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Monthly Spending Trends"></iframe>
+    <!-- Group: Spending Categories Per Hour -->
+    <div style="display: flex; flex-direction: column; align-items: center; width: 45%; min-width: 300px;">
+      <iframe src="spending_category_hour.html" style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Spending by Category and Hour"></iframe>
+      <p>Most food purchases occur during dinner, and clothing purchases at night, likely due to impulse online shopping.</p>
+    </div>
+
+    <!-- Group: Monthly Spending Trends -->
+    <div style="display: flex; flex-direction: column; align-items: center; width: 45%; min-width: 300px;">
+      <iframe src="monthly_spending_trends.html" style="border: none; width: 100%; height: 300px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" title="Monthly Spending Trends"></iframe>
+      <p>Trends for spending by categories can be seen. Use the dropdown menu to explore each category individually.</p>
+    </div>
+
   </div>
 </section>
+
 
 
 

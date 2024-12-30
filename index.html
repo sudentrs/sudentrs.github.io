@@ -66,15 +66,14 @@
     }
 
     section {
-      height: 100vh;
+      min-height: 100vh; /* Changed from fixed height to minimum height */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
+      padding: 40px 20px; /* Add padding for better spacing */
     }
+
 
     section.active {
       opacity: 1;
@@ -105,16 +104,6 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .chart-placeholder {
-      height: 400px;
-      background: #efefef;
-      border: 2px dashed #ccc;
-      text-align: center;
-      line-height: 400px;
-      margin: 20px 0;
-      font-weight: bold;
-      color: #555;
-    }
 
     /* Section Colors */
     #motivation { background: linear-gradient(to right, #FFC107, #FFD54F); color: #333; }

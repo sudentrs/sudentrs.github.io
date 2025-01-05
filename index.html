@@ -378,6 +378,22 @@
         Cross-validation scores range from 0.34 to 0.78, indicating variability in model performance depending on the training/validation split. This suggests sensitivity to the data distribution.
       </p>
     </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h3>Model for classifying spending categories, improved</h3>
+      <p>I tried to improve the second model. Included less caategories with more than 40 datapoints each.</p>
+      </p>
+      <img src="ml3.png" 
+          style="max-width: 70%; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
+          alt="ML Model">
+      <img src="cm.png" 
+          style="max-width: 70%; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);" 
+          alt="Confusion Matrix">
+      <p>Because of the sheer dominance of the food category points, the model's performance is skewed towards this category. 
+        Model achived decent results for investment and subscription categories for a small sample size, but the classes are underrepresented, for subscription results may indicate overfitting.
+        As for transportation, Very high precision but extremely low recall, suggesting the model rarely predicts transportation but when it does, it's mostly correct.
+      </p>
+    </div>
   </section>
 
   <!-- Footer -->
